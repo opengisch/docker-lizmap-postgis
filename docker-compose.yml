@@ -1,0 +1,27 @@
+db:
+  image: kartoza/postgis:9.4-2.1
+  hostname: pg
+  volumes:
+    - ./pg:/var/lib/postgresql
+  # ports:
+  #  - "0.0.0.0:5432:5432"
+  environment:
+    - USERNAME=docker
+    - PASS=docker
+  restart: on-failure:5
+
+lizmap:
+  #image: jancelin/docker-lizmap:3-2.14LTR
+  image: jancelin/docker-lizmap
+  hostname: lizmap
+  ports:
+    - "0.0.0.0:9999:80"
+  volumes:
+    - ./projects:/home
+    - ./lizmap_var:/var/www/websig/lizmap/var
+    - ./lizmap_tmp/:/tmp
+  links:
+    - db:qgis-postgis
+  restart: on-failure:5
+  user: root
+
