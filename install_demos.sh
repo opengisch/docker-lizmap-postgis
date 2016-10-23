@@ -1,6 +1,6 @@
 #!/bin/bash
-# todo make dynamic
-DB_CONTAINER=dockerlizmappostgis_db_1
+DB_CONTAINER=$(docker-compose ps -q db | head -1)
+LIZMAP_CONTAINER=$(docker-compose ps -q lizmap | head -1)
 
 cp demo_data/qgis2015.qgs* projects/
 docker cp demo_data/qgis2015.sql $DB_CONTAINER:/tmp/
