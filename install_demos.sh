@@ -10,10 +10,10 @@ docker exec $DB_CONTAINER /tmp/load_sql.sh
 
 # todo add repository
 LIZMAP_CONFIG=lizmap_var/config/lizmapConfig.ini.php
-echo "[repository:demo]" >> $LIZMAP_CONFIG
-echo "label=demo" >> $LIZMAP_CONFIG
-echo "path="/home/"" >> $LIZMAP_CONFIG
-echo "allowUserDefinedThemes=1" >> $LIZMAP_CONFIG
+echo "[repository:demo]" | sudo tee -a $LIZMAP_CONFIG
+echo "label=demo" | sudo tee -a $LIZMAP_CONFIG
+echo "path="/home/"" | sudo tee -a $LIZMAP_CONFIG
+echo "allowUserDefinedThemes=1" | sudo tee -a $LIZMAP_CONFIG
 
 
 #docker exec -it $LIZMAP_CONTAINER bash -c "apt-get -y install sqlite3"
