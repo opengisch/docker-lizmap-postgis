@@ -16,6 +16,9 @@ echo "path="/home/"" | sudo tee -a $LIZMAP_CONFIG
 echo "allowUserDefinedThemes=1" | sudo tee -a $LIZMAP_CONFIG
 
 docker cp demo_data/load_permissions.sql $LIZMAP_CONTAINER:/tmp/
-docker exec -it $LIZMAP_CONTAINER bash -c "apt-get -y install sqlite3"
-docker exec -it $LIZMAP_CONTAINER bash -c "cat /tmp/load_permissions.sql | sqlite3 /var/www/websig/lizmap/var/db/jauth.db"
-
+# FIXME $LIZMAP_CONTAINER has no internet.
+# docker cp demo_data/load_permissions.sql $DB_CONTAINER:/tmp/
+#docker exec -it $LIZMAP_CONTAINER bash -c "apt-get -y install sqlite3"
+#docker exec -it $LIZMAP_CONTAINER bash -c "cat /tmp/load_permissions.sql | sqlite3 /var/www/websig/lizmap/var/db/jauth.db"
+# remove when above is fixed
+sudo cat demo_data/load_permissions.sql | sudo sqlite3 lizmap_var/db/jauth.db
