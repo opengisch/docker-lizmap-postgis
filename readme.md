@@ -1,5 +1,12 @@
+LIZMAP with PostGIS docker stack
+================================
 Docker composer for a full stack lizmap with qgis server and postgis server.
 The postgis server host is named qgis-postgis and is only accessible from within this composer.
+
+Versions
+--------
+PostGIS: kartoza/postgis:9.4-2.1
+Lizmap: jancelin/docker-lizmap (it is QGIS 2.16 and lizmap 3.0.3 but is not tagged yet) 
 
 Network
 -------
