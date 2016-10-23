@@ -11,32 +11,29 @@
   </layer-tree-group>
   <relations/>
   <mapcanvas>
-    <units>meters</units>
+    <units>degrees</units>
     <extent>
-      <xmin>-15021179.15319505706429482</xmin>
-      <ymin>-5985761.45521487481892109</ymin>
-      <xmax>16302683.63818684592843056</xmax>
-      <ymax>15053622.30471382848918438</ymax>
+      <xmin>-9.80132973005003372</xmin>
+      <ymin>48.16604216901121305</ymin>
+      <xmax>32.64002556434535052</xmax>
+      <ymax>67.04206816459247875</ymax>
     </extent>
     <rotation>0</rotation>
-    <projections>1</projections>
+    <projections>0</projections>
     <destinationsrs>
       <spatialrefsys>
-        <proj4>+proj=merc +a=6378137 +b=6378137 +lat_ts=0.0 +lon_0=0.0 +x_0=0.0 +y_0=0 +k=1.0 +units=m +nadgrids=@null +wktext  +no_defs</proj4>
-        <srsid>3857</srsid>
-        <srid>3857</srid>
-        <authid>EPSG:3857</authid>
-        <description>WGS 84 / Pseudo Mercator</description>
-        <projectionacronym>merc</projectionacronym>
+        <proj4>+proj=longlat +datum=WGS84 +no_defs</proj4>
+        <srsid>3452</srsid>
+        <srid>4326</srid>
+        <authid>EPSG:4326</authid>
+        <description>WGS 84</description>
+        <projectionacronym>longlat</projectionacronym>
         <ellipsoidacronym>WGS84</ellipsoidacronym>
-        <geographicflag>false</geographicflag>
+        <geographicflag>true</geographicflag>
       </spatialrefsys>
     </destinationsrs>
     <rendermaptile>0</rendermaptile>
-    <layer_coordinate_transform_info>
-      <layer_coordinate_transform destAuthId="EPSG:3857" srcAuthId="EPSG:3857" srcDatumTransform="-1" destDatumTransform="-1" layerid="OSM_Mapnik20161022232022547"/>
-      <layer_coordinate_transform destAuthId="EPSG:3857" srcAuthId="EPSG:4326" srcDatumTransform="-1" destDatumTransform="-1" layerid="attendees20150518093756467"/>
-    </layer_coordinate_transform_info>
+    <layer_coordinate_transform_info/>
   </mapcanvas>
   <layer-tree-canvas>
     <custom-order enabled="0">
@@ -53,13 +50,15 @@
   <projectlayers>
     <maplayer simplifyAlgorithm="0" minimumScale="100000" maximumScale="1e+08" simplifyDrawingHints="0" readOnly="0" minLabelScale="0" maxLabelScale="1e+08" simplifyDrawingTol="1" geometry="Point" simplifyMaxScale="1" type="vector" hasScaleBasedVisibilityFlag="0" simplifyLocal="1" scaleBasedLabelVisibilityFlag="0">
       <extent>
-        <xmin>-15.70135688781740058</xmin>
+        <xmin>-23.83102226257319955</xmin>
         <ymin>27.66164207458500002</ymin>
-        <xmax>35.35406875610350141</xmax>
+        <xmax>35.39451599121090197</xmax>
         <ymax>63.60779571533200283</ymax>
       </extent>
       <id>attendees20150518093756467</id>
       <datasource>dbname='gis' host=qgis-postgis port=5432 user='docker' password='docker' sslmode=disable key='id' srid=4326 type=Point table="public"."attendees" (geom) sql=</datasource>
+      <shortname>attendees</shortname>
+      <title>attendees in Nodebo</title>
       <keywordList>
         <value></value>
       </keywordList>
@@ -403,10 +402,10 @@ def my_form_open(dialog, layer, feature):
   <properties>
     <WMSUrl type="QString"></WMSUrl>
     <SpatialRefSys>
-      <ProjectCRSProj4String type="QString">+proj=merc +a=6378137 +b=6378137 +lat_ts=0.0 +lon_0=0.0 +x_0=0.0 +y_0=0 +k=1.0 +units=m +nadgrids=@null +wktext  +no_defs</ProjectCRSProj4String>
-      <ProjectCrs type="QString">EPSG:3857</ProjectCrs>
-      <ProjectCRSID type="int">3857</ProjectCRSID>
-      <ProjectionsEnabled type="int">1</ProjectionsEnabled>
+      <ProjectCRSProj4String type="QString">+proj=longlat +datum=WGS84 +no_defs</ProjectCRSProj4String>
+      <ProjectCrs type="QString">EPSG:4326</ProjectCrs>
+      <ProjectCRSID type="int">3452</ProjectCRSID>
+      <ProjectionsEnabled type="int">0</ProjectionsEnabled>
     </SpatialRefSys>
     <Measurement>
       <DistanceUnits type="QString">meters</DistanceUnits>
@@ -416,10 +415,10 @@ def my_form_open(dialog, layer, feature):
       <filterByMap type="bool">false</filterByMap>
     </Legend>
     <WMSExtent type="QStringList">
-      <value>-174.71204804617698869</value>
-      <value>-113.30092011028885679</value>
-      <value>170.47810737321819374</value>
-      <value>118.55388650750272461</value>
+      <value>-36.65960843007653125</value>
+      <value>16.82211070861923474</value>
+      <value>48.22310215871424077</value>
+      <value>73.83551082962473799</value>
     </WMSExtent>
     <DefaultStyles>
       <Fill type="QString"></Fill>
@@ -437,6 +436,7 @@ def my_form_open(dialog, layer, feature):
       <attendees20150518093756467 type="int">8</attendees20150518093756467>
     </WFSLayersPrecision>
     <WMSRestrictedComposers type="QStringList"/>
+    <WMSRootName type="QString">nodebo</WMSRootName>
     <WMSServiceTitle type="QString">Attandees Nødebo Denmark</WMSServiceTitle>
     <WMSContactPhone type="QString"></WMSContactPhone>
     <WFSTLayers>
@@ -488,13 +488,13 @@ def my_form_open(dialog, layer, feature):
     <WMSKeywordList type="QStringList">
       <value></value>
     </WMSKeywordList>
-    <Paths>
-      <Absolute type="bool">false</Absolute>
-    </Paths>
     <Variables>
       <variableNames type="QStringList"/>
       <variableValues type="QStringList"/>
     </Variables>
+    <Paths>
+      <Absolute type="bool">false</Absolute>
+    </Paths>
     <WMSContactPosition type="QString"></WMSContactPosition>
     <PositionPrecision>
       <DecimalPlaces type="int">2</DecimalPlaces>
@@ -511,7 +511,7 @@ def my_form_open(dialog, layer, feature):
       <CanvasColorBluePart type="int">255</CanvasColorBluePart>
     </Gui>
     <Measure>
-      <Ellipsoid type="QString">WGS84</Ellipsoid>
+      <Ellipsoid type="QString">NONE</Ellipsoid>
     </Measure>
     <WMSServiceAbstract type="QString">demo :-)</WMSServiceAbstract>
     <WFSLayers type="QStringList">
@@ -519,7 +519,7 @@ def my_form_open(dialog, layer, feature):
     </WFSLayers>
     <WFSUrl type="QString"></WFSUrl>
     <WMSServiceCapabilities type="bool">true</WMSServiceCapabilities>
-    <WMSUseLayerIDs type="bool">false</WMSUseLayerIDs>
+    <WMSUseLayerIDs type="bool">true</WMSUseLayerIDs>
   </properties>
   <visibility-presets/>
 </qgis>
