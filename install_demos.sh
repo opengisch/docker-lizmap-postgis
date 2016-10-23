@@ -24,3 +24,5 @@ docker cp demo_data/load_permissions.sql $LIZMAP_CONTAINER:/tmp/
 #docker exec -it $LIZMAP_CONTAINER bash -c "cat /tmp/load_permissions.sql | sqlite3 /var/www/websig/lizmap/var/db/jauth.db"
 # remove when above is fixed
 sudo cat demo_data/load_permissions.sql | sudo sqlite3 lizmap_var/db/jauth.db
+
+x-www-browser http://localhost:9999 &
