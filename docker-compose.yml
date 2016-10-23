@@ -4,6 +4,8 @@ db:
   volumes:
     - ./pg:/var/lib/postgresql
   # ports:
+  # uncomment this to expose port 5432 to the host
+  # WARNING: THIS IS UNSAFE USE ONLY FOR DEV
   #  - "0.0.0.0:5432:5432"
   environment:
     - USERNAME=docker
