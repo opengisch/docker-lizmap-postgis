@@ -59,7 +59,7 @@
         <ymax>63.60779571533200283</ymax>
       </extent>
       <id>attendees20150518093756467</id>
-      <datasource>dbname='gis' host=qgis-postgis port=5555 user='docker' password='docker' sslmode=disable key='id' srid=4326 type=Point table="public"."attendees" (geom) sql=</datasource>
+      <datasource>dbname='gis' host=qgis-postgis port=5432 user='docker' password='docker' sslmode=disable key='id' srid=4326 type=Point table="public"."attendees" (geom) sql=</datasource>
       <keywordList>
         <value></value>
       </keywordList>
