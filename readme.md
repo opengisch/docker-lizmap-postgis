@@ -1,14 +1,6 @@
 Docker composer for a full stack lizmap with qgis server and postgis server.
 The postgis server host is named qgis-postgis and is only accessible from within this composer.
 
-QGIS Projects
--------------
-in your projects you should create a postgis connection with the following credentials:
-* host: qgis-postgis
-* db: gis
-* user: docker
-* password: docker
-
 Network
 -------
 in your /etc/hosts file (or in your dns if you are in an intranet) you should create an entry that points qgis-postgis to the correct server where you replicate the postgis server that is running from the docker-compose. If you are on your own dev machine, this is probably 127.0.0.1 so your /etc/hosts file should have something like this:
@@ -43,3 +35,10 @@ http://localhost:9999
 http://localhost:9999/websig/lizmap/www/admin.php/admin/config/
 ```
 
+QGIS Projects
+-------------
+in your projects you should create a postgis connection with the following credentials:
+* host: qgis-postgis (remember to make it available to your DNS as explained in [network](#network))
+* db: gis
+* user: docker
+* password: docker
