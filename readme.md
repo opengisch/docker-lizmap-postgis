@@ -30,7 +30,7 @@ docker-compose up -d
 Demo Project
 ------------
 if you want to automatically add the demo project you can run the comand below. This is a one off comand and will probably fail if repeated. I suggest using it just after the first run of docker-compose. 
-WARNING: the startup of postgis at the first run of docker-compose takes some 10 seconds, so allow some time between `docker-compose up -d` and `./install_demo.sh`
+WARNING: the startup of postgis at the first run of docker-compose takes some 10 seconds, so allow some time between `docker-compose up -d` and `./install_demo.sh`. if you get `psql: FATAL:  database "gis" does not exist` you were too fast :)
 ```
 ./install_demo.sh
 ```
