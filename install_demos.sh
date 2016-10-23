@@ -1,13 +1,8 @@
 #!/bin/bash
+
+set -e
 DB_CONTAINER=$(docker-compose ps -q db | head -1)
 LIZMAP_CONTAINER=$(docker-compose ps -q lizmap | head -1)
-
-DB_STARTED=$(sudo cat `docker inspect --format='{{.LogPath}}' $DB_CONTAINER` | grep -c "database system is ready to accept connections")
-
-if [ "$DB_STARTED" -eq "0" ]; then
-   echo "postgis has not started yet retry in 10s";
-   exit;
-fi
 
 cp demo_data/qgis2015.qgs* projects/
 docker cp demo_data/qgis2015.sql $DB_CONTAINER:/tmp/
