@@ -5,8 +5,8 @@ The postgis server host is named qgis-postgis and is only accessible from within
 
 Versions
 --------
-PostGIS: kartoza/postgis:9.4-2.1
-Lizmap: jancelin/docker-lizmap (it is QGIS 2.16 and lizmap 3.0.3 but is not tagged yet) 
+* PostGIS: kartoza/postgis:9.4-2.1
+* Lizmap: jancelin/docker-lizmap (it is QGIS 2.16.2 and lizmap 3.0.3 but is not tagged yet) 
 
 Network
 -------
