@@ -3,9 +3,9 @@ db:
   hostname: pg
   volumes:
     - ./pg:/var/lib/postgresql
-  # ports:
   # uncomment this to expose port 5432 to the host
   # WARNING: THIS IS UNSAFE USE ONLY FOR DEV
+  # ports:
   #  - "0.0.0.0:5432:5432"
   environment:
     - USERNAME=docker
@@ -18,6 +18,9 @@ lizmap:
   hostname: lizmap
   ports:
     - "0.0.0.0:9999:80"
+  # Uncomment and adapt this if you are using a jwilder/nginx-proxy
+  #environment:
+  #  - VIRTUAL_HOST=sub.domain.com
   volumes:
     - ./projects:/home
     - ./lizmap_var:/var/www/websig/lizmap/var
