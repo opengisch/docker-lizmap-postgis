@@ -1,32 +1,47 @@
-db:
-  image: kartoza/postgis:9.4-2.1
-  hostname: pg
-  volumes:
-    - ./pg:/var/lib/postgresql
-  # uncomment this to expose port 5432 to the host
-  # WARNING: THIS IS UNSAFE USE ONLY FOR DEV
-  # ports:
-  #  - "0.0.0.0:5432:5432"
-  environment:
-    - USERNAME=docker
-    - PASS=docker
-  restart: on-failure:5
+version: '2'
+services:
 
-lizmap:
-  #image: jancelin/docker-lizmap:3-2.14LTR
-  image: jancelin/docker-lizmap
-  hostname: lizmap
-  ports:
-    - "0.0.0.0:9999:80"
-  # Uncomment and adapt this if you are using a jwilder/nginx-proxy
-  #environment:
-  #  - VIRTUAL_HOST=sub.domain.com
-  volumes:
-    - ./projects:/home
-    - ./lizmap_var:/var/www/websig/lizmap/var
-    - ./lizmap_tmp/:/tmp
-  links:
-    - db:qgis-postgis
-  restart: on-failure:5
-  user: root
+    db:
+      image: kartoza/postgis:9.4-2.1
+      hostname: pg
+      volumes:
+        - ./pg:/var/lib/postgresql
+      # uncomment this to expose port 5432 to the host
+      # WARNING: THIS IS UNSAFE USE ONLY FOR DEV
+      ports:
+        - "0.0.0.0:5432:5432"
+      environment:
+        - USERNAME=docker
+        - PASS=docker
+      restart: on-failure:5
+
+    lizmap:
+      image: jancelin/docker-lizmap:3.1.1-0.1
+      #image: jancelin/docker-lizmap
+      hostname: lizmap
+      ports:
+        - 9999:80
+        - 443:443
+      # Uncomment and adapt this if you are using a jwilder/nginx-proxy
+      #environment:
+      #  - VIRTUAL_HOST=sub.domain.com
+      volumes:
+        - ./projects:/home
+        - ./lizmap_var:/var/www/websig/lizmap/var
+        - ./lizmap_tmp/:/tmp
+      links:
+        - db:qgis-postgis
+        - qgiserver:qgiserver
+
+      restart: on-failure:5
+      user: root
+
+
+    qgiserver:
+      image: jancelin/qgis-server:2.14LTR-wfsOutputExtension
+      restart: on-failure:5
+      volumes:
+        - ./projects:/home
+      expose:
+        - 80
 
